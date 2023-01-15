@@ -1,0 +1,50 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+  .title p {
+    display: none;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .nav {
+    align-items: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+    height: 38px;
+  }
+}
+
+/* footer styles */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.9;
+}
