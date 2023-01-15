@@ -18,11 +18,11 @@ function Book({ title, catagories, thumbnail, author }: Book) {
       <img src={thumbnail} alt={`${title} book cover image`} />
       <p>{title}</p>
       <span>{author}</span>
-      <div className={styles.catList}>
+      {/* <div className={styles.catList}>
         {catagories?.map((cat) => (
           <div key={cat}>{cat}</div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
