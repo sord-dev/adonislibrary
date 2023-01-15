@@ -1,9 +1,17 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
-const ModalContext = createContext({});
+export const ModalContext = createContext<any>({});
 
-export function ModalContextProvider(props: any) {
-  const [selectedBook, useSelectedBook] = useState({});
+export function ModalContextProvider({ children }: any) {
+  const [selectedBook, setSelectedBook] = useState(null);
 
-  return <ModalContext.Provider value={{ selectedBook, useSelectedBook }} >ModalContext</ModalContext.Provider>;
+  useEffect(() => {
+    console.log(selectedBook);
+  }, [selectedBook]);
+
+  return (
+    <ModalContext.Provider value={{ selectedBook, setSelectedBook }}>
+      {children}
+    </ModalContext.Provider>
+  );
 }

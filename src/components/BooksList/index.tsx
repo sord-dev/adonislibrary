@@ -1,5 +1,6 @@
+import { ModalContext } from "@/lib/contexts/ModalContext";
 import { Book, BooksListProps } from "@/types";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./style.module.css";
 
 export function BooksList({ books }: any) {
@@ -12,12 +13,14 @@ export function BooksList({ books }: any) {
   );
 }
 
-function Book({ title, catagories, thumbnail, author }: Book) {
+function Book(book: Book) {
+  const { setSelectedBook } = useContext(ModalContext);
+
   return (
-    <div className={styles.book}>
-      <img src={thumbnail} alt={`${title} book cover image`} />
-      <p>{title}</p>
-      <span>{author}</span>
+    <div className={styles.book} onClick={() => setSelectedBook(book)}>
+      <img src={book.thumbnail} alt={`${book.title} book cover image`} />
+      <p>{book.title}</p>
+      <span>{book.author}</span>
       {/* <div className={styles.catList}>
         {catagories?.map((cat) => (
           <div key={cat}>{cat}</div>

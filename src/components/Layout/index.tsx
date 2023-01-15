@@ -37,7 +37,7 @@ export function Layout({ children }: LayoutProps) {
           <p>
             made with ❤️ by{" "}
             <Link
-              href={"https://github.com/sord-dev"}
+              href={"https://linki-seven.vercel.app"}
               target="_blank"
               rel="noopener noreferrer"
             >
