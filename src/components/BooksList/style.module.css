@@ -32,6 +32,10 @@
   border: 0;
 }
 
+.book {
+  cursor: pointer;
+}
+
 .book img {
   height: 280px;
   width: 212px;

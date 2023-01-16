@@ -1,5 +1,5 @@
 import { ModalContext } from "@/lib/contexts/ModalContext";
-import { Book, BooksListProps } from "@/types";
+import { Book } from "@/types";
 import React, { useContext } from "react";
 import styles from "./style.module.css";
 
@@ -21,11 +21,13 @@ function Book(book: Book) {
       <img src={book.thumbnail} alt={`${book.title} book cover image`} />
       <p>{book.title}</p>
       <span>{book.author}</span>
-      {/* <div className={styles.catList}>
-        {catagories?.map((cat) => (
-          <div key={cat}>{cat}</div>
-        ))}
-      </div> */}
     </div>
   );
 }
+
+// catagory list
+/* <div className={styles.catList}>
+      {catagories?.map((cat) => (
+        <div key={cat}>{cat}</div>
+      ))}
+  </div> */

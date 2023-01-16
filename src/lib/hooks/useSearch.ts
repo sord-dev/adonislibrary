@@ -6,12 +6,11 @@ function useSearch(books: Array<string>) {
   const [result, setResult] = useState(books);
 
   useEffect(() => {
-    if (query === "" && result.length === 0) setResult(books);
-    if (query === "") return;
+    if (query === "") setResult(books);
     setResult(
       books.filter((book: any) => {
         const title = book.title.toLowerCase();
-        return title.includes(query);
+        return title.includes(query.toLowerCase());
       })
     );
   }, [query]);

@@ -1,8 +1,10 @@
 import styles from "@/styles/Home.module.css";
-import { SEO, BooksList, SearchBar } from "@/components";
-import data from "../data.json";
+import { SEO, BooksList, SearchBar, Modal } from "@/components";
 import { BooksListProps, Book } from "@/types";
 import useSearch from "@/lib/hooks/useSearch";
+import { useContext } from "react";
+import { ModalContext } from "@/lib/contexts/ModalContext";
+import data from "../data.json";
 
 type HomePageProps = {
   books: BooksListProps;
@@ -11,6 +13,8 @@ type HomePageProps = {
 
 export default function Home({ books, catagories }: any) {
   const { query, setQuery, result } = useSearch(books);
+  const { selectedBook, setSelectedBook, modalActive, closeModal } =
+    useContext(ModalContext);
 
   return (
     <>
@@ -21,6 +25,7 @@ export default function Home({ books, catagories }: any) {
             "A collation of Hamza, Iman and Hormozi's recommendations of books.",
         }}
       />
+      {modalActive && <Modal {...{ closeModal, selectedBook }} />}
       <main>
         <div className={styles.searchBarContainer}>
           <img src="/search-scene-min.png" alt="" />
