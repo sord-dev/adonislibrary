@@ -1,9 +1,15 @@
 import { IdExtractYtURL } from "@/lib";
+import { Book } from "@/types";
 import Link from "next/link";
 import React from "react";
 import styles from "./style.module.css";
 
-export function Modal({ selectedBook, closeModal }: any) {
+type ModalProps = {
+  selectedBook: Book,
+  closeModal: Function,
+}
+
+export function Modal({ selectedBook, closeModal }: ModalProps) {
   return (
     <div className={styles.modalTint} onClick={() => closeModal()}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>

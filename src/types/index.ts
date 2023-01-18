@@ -5,7 +5,8 @@ export type Book = {
   author: string,
   authorInfo: string,
   thumbnail: string,
-  catagories: Array<string>
+  catagories: Array<string>,
+  description: string
 };
 
 export type BooksListProps = {
