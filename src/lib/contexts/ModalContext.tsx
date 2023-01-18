@@ -7,13 +7,17 @@ export function ModalContextProvider({ children }: any) {
   const [modalActive, setModalActive] = useState(false);
 
   const closeModal = () => {
-    setModalActive(false)
-    setSelectedBook(null)
-  }
+    setModalActive(false);
+    setSelectedBook(null);
+  };
 
   useEffect(() => {
-    console.log(selectedBook, modalActive);
-    if (selectedBook) setModalActive(true);
+    if (selectedBook) {
+      setModalActive(true);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   }, [selectedBook, modalActive]);
 
   return (

@@ -1,6 +1,6 @@
 .searchBarContainer {
   width: 100%;
-  height: 215px;
+  height: 245px;
   position: relative;
 }
 
@@ -28,6 +28,30 @@
 
 @media screen and (max-width: 720px) {
   .searchBarContent {
-    font-size: 0.6em;
+    font-size: 0.7em;
+  }
+
+  .searchBarContainer div {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .searchBarContent {
+    font-size: 0.7em;
+  }
+
+  .searchBarContainer div {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .searchBarContent {
+    font-size: 0.7em;
+  }
+
+  .searchBarContainer div {
+    width: 230px;
   }
 }

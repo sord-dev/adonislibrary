@@ -1,30 +1,46 @@
+/* modal background styles */
+
 .modalTint {
   width: 100%;
-  height: 100vh;
-  position: absolute;
+  height: 100%;
+  position: fixed;
   top: 0;
   background-color: rgba(0, 0, 0, 0.423);
   z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1em;
 }
 
 .modal {
   min-width: 260px;
   max-width: 650px;
-  min-height: 500px;
   background-color: #2a2d2f;
   border-radius: 6px;
-  padding: 16px 32px;
+  padding: 32px 32px;
 }
+
+/* modal header styles */
 
 .modalHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
+.modalHeader .title {
+  display: flex;
+  gap: 16px;
+}
+
+.modalThumbnail {
+  height: 180px;
+  width: 72px;
+  border-radius: 6px;
+}
+
+/* exit button  */
 .modalHeader button {
   background: none;
   outline: none;
@@ -32,4 +48,131 @@
   color: white;
   font-size: 24px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 80px;
+}
+
+.metadata .author{
+  opacity: .8;
+}
+
+.metadata > * {
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+
+/* catagory list styles */
+
+.modalHeader .catagoryList {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.catagoryList span {
+  background-color: #5e5df0;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* modal CTA styles */
+
+.modalButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.modalButtons button {
+  width: 126px;
+  height: 32px;
+  margin-top: 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.modalButtons .primary {
+  background-color: #f9b751;
+}
+
+.modalButtons .secondary {
+  background-color: #00adf6;
+}
+
+/* modal content styles */
+
+.modalVideo {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.modalVideo iframe {
+  width: 100%;
+  height: 330px;
+}
+
+.modalDescription {
+  margin: 16px 0;
+}
+
+.modalDescription p{
+  margin:6px 0;
+  opacity: .8;
+}
+
+/* modal responsive styles */
+
+@media screen and (max-width: 580px) {
+  .modalVideo iframe {
+    width: 480px;
+    height: 330px;
+  }
+
+  .modalTint {
+    overflow: scroll;
+  }
+  .modal {
+    overflow: scroll;
+  }
+}
+
+@media screen and (max-height: 780px) {
+  .modalTint {
+    overflow: scroll;
+  }
+  .modal {
+    overflow: scroll;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modalVideo iframe {
+    height: 200px;
+  }
+
+  .modalThumbnail {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .modalVideo iframe {
+    height: 180px;
+  }
+
+  .modal {
+    height: 600px;
+    overflow-y: scroll;
+  }
 }

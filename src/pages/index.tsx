@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import { SEO, BooksList, SearchBar, Modal } from "@/components";
-import { BooksListProps, Book } from "@/types";
+import { BooksListProps } from "@/types";
 import useSearch from "@/lib/hooks/useSearch";
 import { useContext } from "react";
 import { ModalContext } from "@/lib/contexts/ModalContext";
@@ -8,12 +8,11 @@ import data from "../data.json";
 
 type HomePageProps = {
   books: BooksListProps;
-  catagories: Array<string>;
 };
 
-export default function Home({ books, catagories }: any) {
+export default function Home({ books }: any) {
   const { query, setQuery, result } = useSearch(books);
-  const { selectedBook, setSelectedBook, modalActive, closeModal } =
+  const { selectedBook, modalActive, closeModal } =
     useContext(ModalContext);
 
   return (
@@ -51,9 +50,6 @@ export default function Home({ books, catagories }: any) {
 
 export async function getStaticProps() {
   return {
-    props: {
-      books: data.books,
-      catagories: data.catagories,
-    },
+    props: { books: data.books },
   };
 }
