@@ -1,9 +1,10 @@
-import styles from "@/styles/Home.module.css";
-import { SEO, BooksList, SearchBar, Modal } from "@/components";
-import { BooksListProps } from "@/types";
-import useSearch from "@/lib/hooks/useSearch";
 import { useContext } from "react";
+
+import useSearch from "@/lib/hooks/useSearch";
+import { BooksListProps } from "@/types";
+import { SEO, BooksList, SearchBar, Modal } from "@/components";
 import { ModalContext } from "@/lib/contexts/ModalContext";
+import styles from "@/styles/Home.module.css";
 import data from "../data.json";
 
 type HomePageProps = {
@@ -24,10 +25,14 @@ export default function Home({ books }: any) {
             "A collation of Hamza, Iman and Hormozi's recommendations of books.",
         }}
       />
+
       {modalActive && <Modal {...{ closeModal, selectedBook }} />}
+
       <main>
+        
         <div className={styles.searchBarContainer}>
-          <img src="/search-scene-min.png" alt="" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/search-scene-min.png" alt="searchbar scene" />
           <div className={`container ${styles.searchBarContent}`}>
             <h1>
               Wisdom locked behind pages is unlocked only once acted upon.
@@ -43,6 +48,7 @@ export default function Home({ books }: any) {
         <div className={"container"}>
           <BooksList books={result} />
         </div>
+
       </main>
     </>
   );
