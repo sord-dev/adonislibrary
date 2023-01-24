@@ -44,14 +44,14 @@ export default function Home({ books }: any) {
         </div>
 
         <div className={"container"}>
-          <BooksList books={books} />
+          <BooksList books={result} />
         </div>
       </main>
     </>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // use google books api to get a list of books from your google books bookshelf
   // NOTE this should be done on the back end on a timeout every few days
   // the data should be populated in a database because it doesn't change much

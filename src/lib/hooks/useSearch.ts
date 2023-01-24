@@ -1,5 +1,4 @@
-import { Book } from "@/types";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useSearch(books: Array<string>) {
   const [query, setQuery] = useState("");
@@ -7,6 +6,7 @@ function useSearch(books: Array<string>) {
 
   useEffect(() => {
     if (query === "") setResult(books);
+
     setResult(
       books.filter((book: any) => {
         const title = book.title.toLowerCase();
