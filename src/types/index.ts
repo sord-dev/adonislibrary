@@ -1,7 +1,7 @@
 // book types
 
 export type Book = {
-  id: string,
+  id: string;
   title: string;
   authors: Array<string>;
   authorInfo: string;
@@ -24,7 +24,13 @@ export type GoogleAPIBook = {
   id: string;
   etag: string;
   selfLink: string;
-  volumeInfo: Object;
+  volumeInfo: {
+    title: string;
+    description: string;
+    categories: Array<string>;
+    imageLinks: Array<string>;
+    authors: Array<string>;
+  };
   saleInfo: Object;
   accessInfo: Object;
   searchInfo: Object;
