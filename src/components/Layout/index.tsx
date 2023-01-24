@@ -12,7 +12,7 @@ export function Layout({ children }: LayoutProps) {
       <div>
         <div className={`container ${styles.nav}`}>
           <div className={styles.title}>
-            <h2>High Value Books 💸</h2>
+            <h2>High Value Books</h2>
             <p>
               Do the hard work, <span>especially</span> when you don&apos;t feel
               like it
@@ -20,10 +20,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           <nav className={styles.navLinks}>
-            <Link href={"/"}>All</Link>
-            <Link href={"/alex-hormozi"}>Hormozi</Link>
-            <Link href={"/hamza-ahmed"}>Hamza</Link>
-            <Link href={"/iman-gadzhi"}>Iman</Link>
+            <Link href={"/"}>💸</Link>
           </nav>
 
           

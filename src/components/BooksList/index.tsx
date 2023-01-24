@@ -7,7 +7,7 @@ export function BooksList({ books }: any) {
   return (
     <div className={styles.booksList}>
       {books?.map((book: Book) => (
-        <Book key={book.title} {...book} />
+        <Book key={book.id} {...book} />
       ))}
     </div>
   );
@@ -18,9 +18,9 @@ function Book(book: Book) {
 
   return (
     <div className={styles.book} onClick={() => setSelectedBook(book)}>
-      <img src={book.thumbnail} alt={`${book.title} book cover image`} />
+      <img src={book.images?.thumbnail} alt={`${book.title} book cover image`} />
       <p>{book.title}</p>
-      <span>{book.author}</span>
+      <span>{book.authors[0]}</span>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { BooksListProps } from "@/types";
 import { SEO, BooksList, SearchBar, Modal } from "@/components";
 import { ModalContext } from "@/lib/contexts/ModalContext";
 import styles from "@/styles/Home.module.css";
-import data from "../data.json";
+import { GoogleBooksAPIProvider } from "@/lib/apis/googleBooks";
 
 type HomePageProps = {
   books: BooksListProps;
@@ -13,8 +13,7 @@ type HomePageProps = {
 
 export default function Home({ books }: any) {
   const { query, setQuery, result } = useSearch(books);
-  const { selectedBook, modalActive, closeModal } =
-    useContext(ModalContext);
+  const { selectedBook, modalActive, closeModal } = useContext(ModalContext);
 
   return (
     <>
@@ -29,7 +28,6 @@ export default function Home({ books }: any) {
       {modalActive && <Modal {...{ closeModal, selectedBook }} />}
 
       <main>
-        
         <div className={styles.searchBarContainer}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/search-scene-min.png" alt="searchbar scene" />
@@ -46,16 +44,19 @@ export default function Home({ books }: any) {
         </div>
 
         <div className={"container"}>
-          <BooksList books={result} />
+          <BooksList books={books} />
         </div>
-
       </main>
     </>
   );
 }
 
 export async function getStaticProps() {
+  // use google books api to get a list of books from your google books bookshelf
+  // NOTE this should be done on the back end on a timeout every few days
+  // the data should be populated in a database because it doesn't change much
+  const response = await GoogleBooksAPIProvider.getBookShelf("109350090333415106090","1001");
   return {
-    props: { books: data.books },
+    props: { books: response },
   };
 }

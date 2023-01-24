@@ -1,32 +1,28 @@
-import { IdExtractYtURL } from "@/lib";
 import { Book } from "@/types";
 import Link from "next/link";
 import React from "react";
 import styles from "./style.module.css";
 
 type ModalProps = {
-  selectedBook: Book,
-  closeModal: Function,
-}
+  selectedBook: Book;
+  closeModal: Function;
+};
 
 export function Modal({ selectedBook, closeModal }: ModalProps) {
+  console.log(selectedBook);
   return (
     <div className={styles.modalTint} onClick={() => closeModal()}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <div className={styles.title}>
             <div className={styles.modalThumbnail}>
-              <img src={selectedBook.thumbnail} />
+              <img src={selectedBook.images?.smallThumbnail} />
             </div>
 
             <div className={styles.metadata}>
-              <span className={styles.author}>{selectedBook.author}</span>
+              <span className={styles.author}>{selectedBook.authors[0]}</span>
               <h3>{selectedBook.title}</h3>
-              <div className={styles.catagoryList}>
-                {selectedBook.catagories.map((cat) => (
-                  <span key={`${cat}-id`}>{cat}</span>
-                ))}
-              </div>
+              <div className={styles.catagoryList}></div>
 
               <div className={styles.modalButtons}>
                 <Link href={"/#"}>
@@ -57,16 +53,6 @@ export function Modal({ selectedBook, closeModal }: ModalProps) {
         </div>
 
         <div className={styles.modalContent}>
-          <div className={styles.modalVideo}>
-            <iframe
-              src={`https://www.youtube.com/embed/${IdExtractYtURL(
-                selectedBook.authorInfo
-              )}`}
-              allowFullScreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            />
-          </div>
-
           <div className={styles.modalDescription}>
             <h4>Description</h4>
             <p>{selectedBook.description}</p>
