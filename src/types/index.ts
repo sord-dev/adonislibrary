@@ -11,6 +11,7 @@ export type Book = {
   } | null;
   catagories: Array<string>;
   description: string;
+  infoLink: string
 };
 
 export type BooksListProps = {
@@ -30,6 +31,7 @@ export type GoogleAPIBook = {
     categories: Array<string>;
     imageLinks: Array<string>;
     authors: Array<string>;
+    infoLink: string
   };
   saleInfo: Object;
   accessInfo: Object;

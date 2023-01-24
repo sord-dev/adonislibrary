@@ -8,8 +8,9 @@ export const GoogleBooksAPIProvider = {
       `https://www.googleapis.com/books/v1/users/${userId}/bookshelves/${bookshelfId}/volumes?key=${APIKEY}`;
     try {
       const partialRes = await fetch(processQuery(userId, bookshelfId));
-      const res = await partialRes.json();
+      const res = await partialRes.json();      
       const items = this._sanitiseGoogleList(res.items);
+      console.log(items)
       return items;
     } catch (error) {
       console.log(error);
@@ -23,7 +24,8 @@ export const GoogleBooksAPIProvider = {
         description = item.volumeInfo?.description || null,
         categories = item.volumeInfo?.categories || null,
         images = item.volumeInfo?.imageLinks || null,
-        authors = item.volumeInfo?.authors || null;
+        authors = item.volumeInfo?.authors || null,
+        infoLink = item.volumeInfo?.infoLink || null;
 
       return {
         id,
@@ -32,6 +34,7 @@ export const GoogleBooksAPIProvider = {
         categories,
         images,
         authors,
+        infoLink
       };
     });
 

@@ -9,48 +9,13 @@ type ModalProps = {
 };
 
 export function Modal({ selectedBook, closeModal }: ModalProps) {
-  console.log(selectedBook);
   return (
     <div className={styles.modalTint} onClick={() => closeModal()}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.modalHeader}>
-          <div className={styles.title}>
-            <div className={styles.modalThumbnail}>
-              <img src={selectedBook.images?.smallThumbnail} />
-            </div>
-
-            <div className={styles.metadata}>
-              <span className={styles.author}>{selectedBook.authors[0]}</span>
-              <h3>{selectedBook.title}</h3>
-              <div className={styles.catagoryList}></div>
-
-              <div className={styles.modalButtons}>
-                <Link href={"/#"}>
-                  <button className={styles.primary}>
-                    {" "}
-                    <img
-                      src="/ShoppingCart.svg"
-                      alt="shopping cart svg image"
-                    />{" "}
-                    Buy Now
-                  </button>
-                </Link>
-                <Link href={"/#"}>
-                  <button className={styles.secondary}>
-                    {" "}
-                    <img
-                      src="/QuestionMark.svg"
-                      alt="question mark svg image"
-                    />{" "}
-                    More Info
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <button onClick={() => closeModal()}>x</button>
-        </div>
+        <ModalHeader {...selectedBook}>
+          {/* NOTE EXIT BUTTON NOT WORKING, CAN STILL EXIT FROM OOB CLICK */}
+          {/* <button onClick={() => closeModal()}>X</button> */}
+        </ModalHeader>
 
         <div className={styles.modalContent}>
           <div className={styles.modalDescription}>
@@ -59,6 +24,53 @@ export function Modal({ selectedBook, closeModal }: ModalProps) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ModalHeader(selectedBook: Book, { children }: any) {
+  return (
+    <div className={styles.modalHeader}>
+      <div className={styles.title}>
+        <div className={styles.modalThumbnail}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={selectedBook.images?.smallThumbnail}
+            alt={`${selectedBook.title}, ${selectedBook.description}`}
+          />
+        </div>
+
+        <div className={styles.metadata}>
+          <span className={styles.author}>{selectedBook.authors[0]}</span>
+          <h3>{selectedBook.title}</h3>
+          <div className={styles.catagoryList}></div>
+
+          <ModalButtons {...{ infoLink: selectedBook.infoLink }} />
+        </div>
+      </div>
+
+      {children}
+    </div>
+  );
+}
+
+function ModalButtons({ infoLink }: any) {
+  return (
+    <div className={styles.modalButtons}>
+      <Link href={infoLink} target="_blank" rel="noopener noreferrer">
+        <button className={styles.primary}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/ShoppingCart.svg" alt="shopping cart svg image" />
+          Buy Now
+        </button>
+      </Link>
+      <Link href={infoLink} target="_blank" rel="noopener noreferrer">
+        <button className={styles.secondary}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/QuestionMark.svg" alt="question mark svg image" />
+          More Info
+        </button>
+      </Link>
     </div>
   );
 }
