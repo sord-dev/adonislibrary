@@ -31,25 +31,21 @@ export function Modal({ selectedBook, closeModal }: ModalProps) {
 function ModalHeader(selectedBook: Book, { children }: any) {
   return (
     <div className={styles.modalHeader}>
-      <div className={styles.title}>
-        <div className={styles.modalThumbnail}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={selectedBook.images?.smallThumbnail}
-            alt={`${selectedBook.title}, ${selectedBook.description}`}
-          />
-        </div>
-
-        <div className={styles.metadata}>
-          <span className={styles.author}>{selectedBook.authors[0]}</span>
-          <h3>{selectedBook.title}</h3>
-          <div className={styles.catagoryList}></div>
-
-          <ModalButtons {...{ infoLink: selectedBook.infoLink }} />
-        </div>
+      <div className={styles.modalThumbnail}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={selectedBook.images?.smallThumbnail}
+          alt={`${selectedBook.title}, ${selectedBook.description}`}
+        />
       </div>
 
-      {children}
+      <div className={styles.metadata}>
+        <span className={styles.author}>{selectedBook.authors[0]}</span>
+        <h3>{selectedBook.title}</h3>
+        <div className={styles.catagoryList}></div>
+
+        <ModalButtons {...{ infoLink: selectedBook.infoLink }} />
+      </div>
     </div>
   );
 }
