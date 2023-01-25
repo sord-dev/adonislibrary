@@ -1,3 +1,4 @@
+import { convertToHTTPS } from "@/lib";
 import { Book } from "@/types";
 import Link from "next/link";
 import React from "react";
@@ -34,7 +35,7 @@ function ModalHeader(selectedBook: Book, { children }: any) {
       <div className={styles.modalThumbnail}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={selectedBook.images?.smallThumbnail}
+          src={convertToHTTPS(selectedBook.images?.smallThumbnail)}
           alt={`${selectedBook.title}, ${selectedBook.description}`}
         />
       </div>

@@ -1,3 +1,4 @@
+import { convertToHTTPS } from "@/lib";
 import { ModalContext } from "@/lib/contexts/ModalContext";
 import { Book } from "@/types";
 import React, { useContext } from "react";
@@ -18,7 +19,11 @@ function Book(book: Book) {
 
   return (
     <div className={styles.book} onClick={() => setSelectedBook(book)}>
-      <img src={book.images?.thumbnail} alt={`${book.title} book cover image`} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={convertToHTTPS(book.images?.thumbnail)}
+        alt={`${book.title} book cover image`}
+      />
       <p>{book.title}</p>
       <span>{book.authors[0]}</span>
     </div>
