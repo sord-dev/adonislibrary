@@ -13,6 +13,7 @@ function useSearch(books: Array<string>) {
         return title.includes(query.toLowerCase());
       })
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   return { query, setQuery, result };

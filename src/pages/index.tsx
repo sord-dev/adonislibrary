@@ -1,15 +1,9 @@
 import { useContext } from "react";
-
-import useSearch from "@/lib/hooks/useSearch";
-import { BooksListProps } from "@/types";
-import { SEO, BooksList, SearchBar, Modal } from "@/components";
 import { ModalContext } from "@/lib/contexts/ModalContext";
-import styles from "@/styles/Home.module.css";
+import { SEO, BooksList, SearchBar, Modal } from "@/components";
+import useSearch from "@/lib/hooks/useSearch";
 import { GoogleBooksAPIProvider } from "@/lib/apis/googleBooks";
-
-type HomePageProps = {
-  books: BooksListProps;
-};
+import styles from "@/styles/Home.module.css";
 
 export default function Home({ books }: any) {
   const { query, setQuery, result } = useSearch(books);
@@ -52,10 +46,13 @@ export default function Home({ books }: any) {
 }
 
 export async function getServerSideProps() {
-  // use google books api to get a list of books from your google books bookshelf
-  // NOTE this should be done on the back end on a timeout every few days
+  // use google books api to get a list of books from your google books bookshelf DONE
+  // NOTE THIS should be done on the back end on a timeout every few days
   // the data should be populated in a database because it doesn't change much
-  const response = await GoogleBooksAPIProvider.getBookShelf("109350090333415106090","1001");
+  const response = await GoogleBooksAPIProvider.getBookShelf(
+    "109350090333415106090",
+    "1001"
+  );
   return {
     props: { books: response },
   };
