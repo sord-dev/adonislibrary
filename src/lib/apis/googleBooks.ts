@@ -5,7 +5,7 @@ export const GoogleBooksAPIProvider = {
     if (!APIKEY) throw Error("Please provide a google api key");
 
     const processQuery = (userId: string, bookshelfId: string) =>
-      `https://www.googleapis.com/books/v1/users/${userId}/bookshelves/${bookshelfId}/volumes?key=${APIKEY}&maxResults=500`;
+      `https://www.googleapis.com/books/v1/users/${userId}/bookshelves/${bookshelfId}/volumes?key=${APIKEY}&maxResults=50`;
     try {
       const partialRes = await fetch(processQuery(userId, bookshelfId));
       const res = await partialRes.json();
@@ -13,6 +13,7 @@ export const GoogleBooksAPIProvider = {
       return items;
     } catch (error) {
       console.log(error);
+      return [];
     }
   },
 

@@ -2,8 +2,14 @@
   display: flex;
   gap: 2em;
   align-items: center;
+  margin: 0 auto;
+  max-width: 1500px;
   flex-wrap: wrap;
-  
+}
+
+.error {
+  margin: 0 auto;
+  height: 40vh;
 }
 
 .book {

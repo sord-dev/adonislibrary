@@ -1,11 +1,7 @@
-import Link from "next/link";
+import { SearchBarProps } from "@/types";
 import React from "react";
 import styles from "./style.module.css";
 
-type SearchBarProps = {
-  query: string;
-  setQuery: Function;
-};
 
 export function SearchBar({ query, setQuery }: SearchBarProps) {
   return (

@@ -20,6 +20,14 @@
   flex-direction: column;
 }
 
+.searchBarContent {
+  margin: 10px 0;
+}
+
+.searchBarContent p{
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 980px) {
   .searchBarContent {
     font-size: 0.8em;

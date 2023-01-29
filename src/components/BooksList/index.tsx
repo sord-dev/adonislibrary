@@ -1,4 +1,4 @@
-import { convertToHTTPS } from "@/lib";
+import { convertHTTPToHTTPS } from "@/lib";
 import { ModalContext } from "@/lib/contexts/ModalContext";
 import { Book } from "@/types";
 import React, { useContext } from "react";
@@ -10,6 +10,7 @@ export function BooksList({ books }: any) {
       {books?.map((book: Book) => (
         <Book key={book.id} {...book} />
       ))}
+      {!books.length && <div className={styles.error}>Sorry, no results.</div>}
     </div>
   );
 }
@@ -21,7 +22,7 @@ function Book(book: Book) {
     <div className={styles.book} onClick={() => setSelectedBook(book)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={convertToHTTPS(book.images?.thumbnail)}
+        src={convertHTTPToHTTPS(book.images?.thumbnail)}
         alt={`${book.title} book cover image`}
       />
       <p>{book.title}</p>

@@ -14,8 +14,7 @@ export default function Home({ books }: any) {
       <SEO
         {...{
           title: "High Value Books 💸",
-          description:
-            "A collation of Hamza, Iman and Hormozi's recommendations of books.",
+          description: "Books worth buying.",
         }}
       />
 
@@ -27,11 +26,12 @@ export default function Home({ books }: any) {
           <img src="/search-scene-min.png" alt="searchbar scene" />
           <div className={`container ${styles.searchBarContent}`}>
             <h1>
-              Wisdom locked behind pages is unlocked only once acted upon.
+              Wisdom locked behind pages is unlocked <br /> only once acted
+              upon.
             </h1>
             <p>
-              Approx {books.length} books here to learn from, go ahead and
-              search...
+              PS these books are catagoriesed via topic, <br /> therefore if
+              you&apos;d like a specific type of book, click the catagories.
             </p>
             <SearchBar {...{ query, setQuery }} />
           </div>
