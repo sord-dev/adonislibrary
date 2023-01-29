@@ -16,7 +16,7 @@ export type Book = {
     smallThumbnail: string;
     thumbnail: string;
   } | null;
-  catagories: Array<string>;
+  categories: Array<string>;
   description: string;
   infoLink: string;
 };

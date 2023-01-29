@@ -18,7 +18,7 @@ export default function Home({ books }: any) {
         }}
       />
 
-      {modalActive && <Modal {...{ closeModal, selectedBook }} />}
+      {modalActive && <Modal {...{ closeModal, selectedBook, books }} />}
 
       <main>
         <div className={styles.searchBarContainer}>
@@ -53,6 +53,7 @@ export async function getServerSideProps() {
     "109350090333415106090",
     "1001"
   );
+
   return {
     props: { books: response },
   };

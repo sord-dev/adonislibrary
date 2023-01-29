@@ -67,14 +67,14 @@
 
 /* catagory list styles */
 
-.modalHeader .catagoryList {
+.modalHeader .categoryList {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
   font-size: 14px;
 }
 
-.catagoryList span {
+.categoryList .catagoryItem {
   background-color: #5e5df0;
   padding: 4px 8px;
   border-radius: 6px;
@@ -121,6 +121,9 @@
   opacity: 0.8;
 }
 
+/* modal recommended books */
+.recommendedBooks {}
+
 /* modal responsive styles */
 
 @media screen and (max-width: 580px) {
@@ -137,17 +140,17 @@
     overflow: scroll;
   }
   .modal {
-    overflow: scroll;
+    overflow-y: scroll;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 400px) {
   .modalThumbnail {
     display: none;
   }
 
-  .modalHeader {
-    margin-bottom: 30px;
+  .modalContent {
+    margin-top: 50px;
   }
 }
 

@@ -32,8 +32,3 @@ function Book(book: Book) {
 }
 
 // catagory list
-/* <div className={styles.catList}>
-      {catagories?.map((cat) => (
-        <div key={cat}>{cat}</div>
-      ))}
-  </div> */
