@@ -1,34 +1,46 @@
-import { convertHTTPToHTTPS } from "@/lib";
-import { ModalContext } from "@/lib/contexts/ModalContext";
-import { Book } from "@/types";
-import React, { useContext } from "react";
+import { getAllCatagories, normaliseString, sortMenuItems } from "@/lib";
+import React, { useMemo } from "react";
 import styles from "./style.module.css";
+import { Book } from "../Book";
 
-export function BooksList({ books }: any) {
+export function Menu({ books }: any) {
+  const categories = useMemo(() => getAllCatagories(books), [books]);
+  const sortedMenuData = useMemo(
+    () => sortMenuItems(books, categories),
+    [books, categories]
+  );
+
   return (
-    <div className={styles.booksList}>
-      {books?.map((book: Book) => (
-        <Book key={book.id} {...book} />
-      ))}
-      {!books.length && <div className={styles.error}>Sorry, no results.</div>}
+    <div className={styles.menu}>
+      {categories?.map((category: string) => {
+        const normalisedCat = normaliseString(category);
+        const books = sortedMenuData[normalisedCat];
+
+        return (
+          <div key={normalisedCat} className={styles.category}>
+            <h3>{category}</h3>
+            <div className={styles.bookList}>
+              <BookList books={books} />
+            </div>
+          </div>
+        );
+      })}
+
+      {!books.length && <SearchError />}
     </div>
   );
 }
 
-function Book(book: Book) {
-  const { setSelectedBook } = useContext(ModalContext);
-
+function BookList({ books }: any) {
   return (
-    <div className={styles.book} onClick={() => setSelectedBook(book)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={convertHTTPToHTTPS(book.images?.thumbnail)}
-        alt={`${book.title} book cover image`}
-      />
-      <p>{book.title}</p>
-      <span>{book.authors[0]}</span>
-    </div>
+    <>
+      {books.map((book: any) => {
+        return <Book key={book.id} {...book} />;
+      })}
+    </>
   );
 }
 
-// catagory list
+function SearchError() {
+  return <div className={styles.error}>Sorry, no results.</div>;
+}

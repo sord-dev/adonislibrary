@@ -1,40 +1,11 @@
 /* searchbar */
 
 .searchbar {
-  min-width: 220px;
+  min-width: 240px;
   font-size: 18px;
   padding: 8px 16px;
   outline: none;
   border-radius: 6px;
   border: none;
   margin: 10px 0px;
-}
-
-/* catagories */
-
-.catagoryList {
-  display: flex;
-  gap: 1em;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.catagoryList button {
-  background: #5e5df0;
-  border-radius: 9px;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 24px;
-  padding: 8px 18px;
-  width: fit-content;
-  word-break: break-word;
-  cursor: pointer;
-  border: 0;
-}
-
-@media screen and (max-width: 800px) {
-  .catagoryList {
-    justify-content: center;
-  }
 }

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ModalContext } from "@/lib/contexts/ModalContext";
-import { SEO, BooksList, SearchBar, Modal } from "@/components";
+import { SEO, SearchBar, Modal, Menu } from "@/components";
 import useSearch from "@/lib/hooks/useSearch";
 import { GoogleBooksAPIProvider } from "@/lib/apis/googleBooks";
 import styles from "@/styles/Home.module.css";
@@ -23,12 +23,15 @@ export default function Home({ books }: any) {
       <main>
         <div className={styles.searchBarContainer}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://i.postimg.cc/dQxJMxcw/search-scene-min.png" alt="searchbar scene" />
+          <img
+            src="https://i.postimg.cc/dQxJMxcw/search-scene-min.png"
+            alt="searchbar scene"
+          />
           <div className={`container ${styles.searchBarContent}`}>
-            <h1>
+            <h2>
               Wisdom locked behind pages is unlocked <br /> only once acted
               upon.
-            </h1>
+            </h2>
             <p>
               PS these books are catagoriesed via topic, <br /> therefore if
               you&apos;d like a specific type of book, click the catagories.
@@ -38,7 +41,7 @@ export default function Home({ books }: any) {
         </div>
 
         <div className={"container"}>
-          <BooksList books={result} />
+          <Menu books={result} />
         </div>
       </main>
     </>

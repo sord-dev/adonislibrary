@@ -26,6 +26,7 @@
 
 .searchBarContent p{
   margin-bottom: 20px;
+  font-size: .96em;
 }
 
 @media screen and (max-width: 980px) {

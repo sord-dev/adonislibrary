@@ -1,0 +1,14 @@
+.book {
+  max-width: 212px;
+  cursor: pointer;
+}
+
+.book p {
+  font-weight: 600;
+}
+
+.book img {
+  height: 280px;
+  width: 180px;
+  object-fit: cover;
+}
