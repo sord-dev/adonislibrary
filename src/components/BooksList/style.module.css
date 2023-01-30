@@ -7,6 +7,12 @@
   max-width: 1500px;
 }
 
+/* catagory list styles */
+
+.menu > div {
+ overflow-x: hidden;
+}
+
 .menu > div h3 {
   margin-bottom: 10px;
 }
@@ -21,10 +27,6 @@
 .error {
   margin: 0 auto;
   height: 40vh;
-}
-
-.book {
-  max-width: 212px;
 }
 
 .book p {
@@ -48,16 +50,6 @@
   width: fit-content;
   word-break: break-word;
   border: 0;
-}
-
-.book {
-  cursor: pointer;
-}
-
-.book img {
-  height: 280px;
-  width: 212px;
-  object-fit: cover;
 }
 
 @media screen and (max-width: 1200px) {

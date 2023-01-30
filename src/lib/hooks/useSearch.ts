@@ -14,10 +14,12 @@ function useSearch(books: Array<Book>) {
       books.filter((book: Book) => {
         const title = book.title.toLowerCase();
         const name = book.authors[0].toLowerCase();
+        const category = book.categories[0].toLowerCase();
 
         return (
           title.includes(debouncedQuery.toLowerCase()) ||
-          name.includes(debouncedQuery.toLowerCase())
+          name.includes(debouncedQuery.toLowerCase()) ||
+          category.includes(debouncedQuery.toLowerCase())
         );
       })
     );

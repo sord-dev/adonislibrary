@@ -5,16 +5,16 @@ import { Book } from "../Book";
 
 export function Menu({ books }: any) {
   const categories = useMemo(() => getAllCatagories(books), [books]);
-  const sortedMenuData = useMemo(
+  const { menuData, sortedCategories } = useMemo(
     () => sortMenuItems(books, categories),
     [books, categories]
   );
 
   return (
     <div className={styles.menu}>
-      {categories?.map((category: string) => {
+      {sortedCategories?.map((category: string) => {
         const normalisedCat = normaliseString(category);
-        const books = sortedMenuData[normalisedCat];
+        const books = menuData[normalisedCat];
 
         return (
           <div key={normalisedCat} className={styles.category}>

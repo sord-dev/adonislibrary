@@ -1,5 +1,5 @@
 .book {
-  max-width: 212px;
+  max-width: 200px;
   cursor: pointer;
 }
 
@@ -9,6 +9,4 @@
 
 .book img {
   height: 280px;
-  width: 180px;
-  object-fit: cover;
 }

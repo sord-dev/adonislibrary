@@ -4,7 +4,7 @@ const convertHTTPToHTTPS = (url: string | undefined) => {
   return url?.replace(/http/g, "https") || undefined;
 };
 
-// taking in an array of {category: 'foo', ...} 
+// taking in an array of {category: 'foo', ...}
 // finds all categories and return them as an array
 
 const getAllCatagories = (booksArr: Book[]) => {
@@ -24,22 +24,6 @@ const normaliseString = (string: string) => {
   return string.toLowerCase().replace(/[^a-z]/gi, "");
 };
 
-// given an array of categories and an array of books
-// return an object that looks like { categoryfoo: [...booksFoo], categorybar: [...booksBar] }
+export { convertHTTPToHTTPS, getAllCatagories, normaliseString };
 
-const sortMenuItems = (books: Book[], categories: string[]) => {
-  const menuItems: any = {};
-
-  for (var name of categories) {
-    const category = normaliseString(name);
-    menuItems[category] = [
-      ...books.filter((book) => {
-        return book.categories[0] === name;
-      }),
-    ];
-  }
-
-  return menuItems;
-};
-
-export { convertHTTPToHTTPS, getAllCatagories, sortMenuItems, normaliseString };
+export * from './sortMenuItems'
