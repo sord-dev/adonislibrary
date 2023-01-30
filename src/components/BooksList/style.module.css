@@ -21,7 +21,8 @@
 
 .menu > div > div {
   display: flex;
-  gap: 1em;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .error {
@@ -52,8 +53,16 @@
   border: 0;
 }
 
-@media screen and (max-width: 1200px) {
-  .booksList {
+@media screen and (max-width: 630px) {
+  .menu > div > div {
     justify-content: center;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  .menu > div > div {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
   }
 }
