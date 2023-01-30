@@ -23,7 +23,7 @@ export default function Home({ books }: any) {
       <main>
         <div className={styles.searchBarContainer}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/search-scene-min.png" alt="searchbar scene" />
+          <img src="https://i.postimg.cc/dQxJMxcw/search-scene-min.png" alt="searchbar scene" />
           <div className={`container ${styles.searchBarContent}`}>
             <h1>
               Wisdom locked behind pages is unlocked <br /> only once acted

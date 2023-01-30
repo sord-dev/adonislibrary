@@ -1,7 +1,8 @@
+import { Book } from "@/types";
 import { useEffect, useState } from "react";
 import { useDebounceedValue } from "./useDebonceValue";
 
-function useSearch(books: Array<string>) {
+function useSearch(books: Array<Book>) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState(books);
   const debouncedQuery = useDebounceedValue(query);
@@ -10,7 +11,7 @@ function useSearch(books: Array<string>) {
     if (debouncedQuery === "") setResult(books);
 
     setResult(
-      books.filter((book: any) => {
+      books.filter((book: Book) => {
         const title = book.title.toLowerCase();
         const name = book.authors[0].toLowerCase();
 
