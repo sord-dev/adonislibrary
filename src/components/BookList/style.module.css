@@ -1,0 +1,28 @@
+.bookList {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1500px;
+  flex-wrap: wrap;
+}
+
+.error {
+  margin: 0 auto;
+  height: 40vh;
+}
+
+@media screen and (max-width: 800px) {
+  .bookList {
+    justify-content: center;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  .bookList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

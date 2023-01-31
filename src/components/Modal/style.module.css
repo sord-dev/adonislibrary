@@ -32,6 +32,9 @@
 .modalThumbnail {
   height: 130px;
   width: 72px;
+}
+
+.modalThumbnail img {
   border-radius: 6px;
 }
 

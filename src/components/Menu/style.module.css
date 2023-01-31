@@ -10,7 +10,7 @@
 /* catagory list styles */
 
 .menu > div {
- overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .menu > div h3 {
@@ -23,11 +23,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-}
-
-.error {
-  margin: 0 auto;
-  height: 40vh;
 }
 
 .book p {
@@ -53,16 +48,11 @@
   border: 0;
 }
 
-@media screen and (max-width: 630px) {
-  .menu > div > div {
-    justify-content: center;
-  }
-}
 
 
 @media screen and (max-width: 420px) {
   .menu > div > div {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }

@@ -5,6 +5,7 @@ import { useDebounceedValue } from "./useDebonceValue";
 function useSearch(books: Array<Book>) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState(books);
+  const [searching, setSearching] = useState(false);
   const debouncedQuery = useDebounceedValue(query);
 
   useEffect(() => {
@@ -23,10 +24,19 @@ function useSearch(books: Array<Book>) {
         );
       })
     );
+
+    if(debouncedQuery !== '') {
+      setSearching(true);
+    }
+
+    return () => {
+      setSearching(false)
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedQuery]);
 
-  return { query, setQuery, result };
+  return { query, setQuery, result, searching };
 }
 
 export default useSearch;

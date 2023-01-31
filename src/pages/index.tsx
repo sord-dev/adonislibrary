@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { ModalContext } from "@/lib/contexts/ModalContext";
-import { SEO, SearchBar, Modal, Menu } from "@/components";
 import useSearch from "@/lib/hooks/useSearch";
 import { GoogleBooksAPIProvider } from "@/lib/apis/googleBooks";
 import styles from "@/styles/Home.module.css";
+import { SEO, SearchBar, Modal, Menu, BookList } from "@/components";
 
 export default function Home({ books }: any) {
-  const { query, setQuery, result } = useSearch(books);
+  const { query, setQuery, result, searching } = useSearch(books);
   const { selectedBook, modalActive, closeModal } = useContext(ModalContext);
 
   return (
@@ -41,7 +41,8 @@ export default function Home({ books }: any) {
         </div>
 
         <div className={"container"}>
-          <Menu books={result} />
+          {!searching && <Menu books={books} />}
+          {searching && <BookList books={result} />}
         </div>
       </main>
     </>

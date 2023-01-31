@@ -20,18 +20,16 @@ export function Menu({ books }: any) {
           <div key={normalisedCat} className={styles.category}>
             <h3>{category}</h3>
             <div className={styles.bookList}>
-              <BookList books={books} />
+              <MenuBookList books={books} />
             </div>
           </div>
         );
       })}
-
-      {!books.length && <SearchError />}
     </div>
   );
 }
 
-function BookList({ books }: any) {
+function MenuBookList({ books }: any) {
   return (
     <>
       {books.map((book: any) => {
@@ -39,8 +37,4 @@ function BookList({ books }: any) {
       })}
     </>
   );
-}
-
-function SearchError() {
-  return <div className={styles.error}>Sorry, no results.</div>;
 }

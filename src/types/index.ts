@@ -25,6 +25,15 @@ export type BooksListProps = {
   books: Array<Book>;
 };
 
+// modal
+
+export type ModalProps = {
+  selectedBook: Book;
+  closeModal: Function;
+  books: Array<Book>;
+};
+
+
 // google api
 
 export type GoogleAPIBook = {

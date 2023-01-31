@@ -1,15 +1,9 @@
 import { convertHTTPToHTTPS } from "@/lib";
 import { useRecommendBook } from "@/lib/hooks/useRecommendBook";
-import { Book } from "@/types";
+import { Book, ModalProps } from "@/types";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./style.module.css";
-
-type ModalProps = {
-  selectedBook: Book;
-  closeModal: Function;
-  books: Array<Book>;
-};
 
 export function Modal({ selectedBook, closeModal, books }: ModalProps) {
   const recommended = useRecommendBook(selectedBook, books);

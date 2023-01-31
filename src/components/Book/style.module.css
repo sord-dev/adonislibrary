@@ -1,6 +1,7 @@
 .book {
   max-width: 200px;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .book p {
@@ -9,4 +10,5 @@
 
 .book img {
   height: 280px;
+  border-radius: 6px;
 }
