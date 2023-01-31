@@ -9,33 +9,12 @@ This project has taught me about building in typescript and NextJS, using react 
 
 ## Features
 
-- Search for books
-- Video related to book
+- Search for books by author and title
 - Link to buy book
 - Shortform description of each book
+- Recommended books
 
 ## Potential Future Features
 
  - Adding a CMS or at least database
  - Adding more books
-
-
-## Cloning this repo
-
-1.  To get the sample code from GitHub, use the  `git clone`  command to get a local copy of the remote repository. To clone the sample code, run the following command:
-    
-    ```bash
-    $ git clone https://github.com/sord-dev/adonislibrary.git
-    ```
-
-    
-2.  Install dependencies
-    ``` bash 
-    $ cd adonislibrary
-    $ npm i
-	```
-
-3.  Launch the developer server
-    ``` bash 
-    $ npm run dev
-	```
