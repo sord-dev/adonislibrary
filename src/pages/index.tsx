@@ -4,6 +4,7 @@ import useSearch from "@/lib/hooks/useSearch";
 import { GoogleBooksAPIProvider } from "@/lib/apis/googleBooks";
 import styles from "@/styles/Home.module.css";
 import { SEO, SearchBar, Modal, Menu, BookList } from "@/components";
+import Image from "next/image";
 
 export default function Home({ books }: any) {
   const { query, setQuery, result, searching } = useSearch(books);
@@ -23,9 +24,12 @@ export default function Home({ books }: any) {
       <main>
         <div className={styles.searchBarContainer}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
+            fill
             src="https://i.postimg.cc/dQxJMxcw/search-scene-min.png"
             alt="searchbar scene"
+            draggable={false}
+            loading={"eager"}
           />
           <div className={`container ${styles.searchBarContent}`}>
             <h2>
