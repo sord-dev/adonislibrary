@@ -3,6 +3,7 @@
 export type SearchBarProps = {
   query: string;
   setQuery: Function;
+  result: Book[] | undefined;
 };
 
 // book types

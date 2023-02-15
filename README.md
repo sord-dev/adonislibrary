@@ -16,5 +16,5 @@ This project has taught me about building in typescript and NextJS, using react 
 
 ## Potential Future Features
 
- - Adding a CMS or at least database
- - Adding more books
+ - Adding a CMS or admin board to add books manually
+ - Adding more books from different apis

@@ -1,3 +1,9 @@
+.searchContainer {
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+}
+
 /* searchbar */
 
 .searchbar {
@@ -8,4 +14,31 @@
   border-radius: 6px;
   border: none;
   margin: 10px 0px;
+}
+
+/* auto search component */
+
+.predict {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border-radius: 0 0 6px 6px;
+}
+
+.predict div{
+  border-top: 1px solid rgba(0, 0, 0, 0.396);
+  margin: 0;
+  text-align: left;
+  text-transform: capitalize;
+  padding: 12px 18px;
+  height: 100%;
+}
+
+.predict div:hover {
+  background-color: aliceblue;
 }

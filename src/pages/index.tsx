@@ -40,7 +40,7 @@ export default function Home({ books }: any) {
               PS these books are catagoriesed via topic, <br /> therefore if
               you&apos;d like a specific type of book, click the catagories.
             </p>
-            <SearchBar {...{ query, setQuery }} />
+            <SearchBar {...{ query, setQuery, result }} />
           </div>
         </div>
 
