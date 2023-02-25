@@ -21,6 +21,7 @@ export function Book(book: Book) {
         src={imgSrc}
         alt={`${book.title} book cover image`}
         loading={"lazy"}
+        draggable={false}
       />
       <p>{book.title}</p>
       <span>{book.authors[0]}</span>

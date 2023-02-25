@@ -19,6 +19,7 @@ export function Carousel({ books }: any) {
           <Image
             src={book.images?.smallThumbnail || ""}
             alt={book.title}
+            draggable={"false"}
             fill
           />
         </div>

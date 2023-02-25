@@ -6,6 +6,7 @@
   margin: 6px;
   overflow-x: scroll;
   gap: 1em;
+  cursor: pointer;
 }
 
 .carouselImage {

@@ -48,6 +48,7 @@ function ModalHeader(selectedBook: Book) {
           height={72}
           width={112}
           src={imgSrc}
+          draggable={false}
           alt={`${selectedBook.title}, ${selectedBook.description}`}
           loading={"lazy"}
         />
