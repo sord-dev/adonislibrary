@@ -17,7 +17,7 @@ const defaultState = {
   closeModal: () => {},
 };
 
-export const ModalContext = createContext<ModalContextState>(defaultState);
+export const ModalContext = createContext<any>(defaultState);
 
 export function ModalContextProvider({ children }: any) {
   const [selectedBook, setSelectedBook] = useState(null);
