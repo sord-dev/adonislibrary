@@ -1,6 +1,23 @@
+import { Book } from "@/types";
 import React, { createContext, useEffect, useState } from "react";
 
-export const ModalContext = createContext<any>({});
+type ModalContextState = {
+  selectedBook: Book | null;
+  setSelectedBook: Function;
+  modalActive: Boolean;
+  setModalActive: Function;
+  closeModal: Function;
+};
+
+const defaultState = {
+  selectedBook: null,
+  setSelectedBook: () => {},
+  modalActive: false,
+  setModalActive: () => {},
+  closeModal: () => {},
+};
+
+export const ModalContext = createContext<ModalContextState>(defaultState);
 
 export function ModalContextProvider({ children }: any) {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -12,13 +29,14 @@ export function ModalContextProvider({ children }: any) {
   };
 
   useEffect(() => {
-    if (selectedBook) {
-      setModalActive(true);
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [selectedBook, modalActive]);
+    selectedBook ? setModalActive(true) : setModalActive(false);
+  }, [selectedBook]);
+
+  useEffect(() => {
+    selectedBook
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [selectedBook]);
 
   return (
     <ModalContext.Provider

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "./style.module.css";
+import { Carousel } from "../Carousel";
 
 export function Modal({ selectedBook, closeModal, books }: ModalProps) {
   const recommended = useRecommendBook(selectedBook, books);
@@ -23,9 +24,8 @@ export function Modal({ selectedBook, closeModal, books }: ModalProps) {
             <div className={styles.recommendedBooks}>
               <h4>You Might Like</h4>
               <div>
-                {recommended.map((book: Book) => {
-                  return <div key={book.id}>{book.title}</div>;
-                })}
+               
+                <Carousel books={recommended} />
               </div>
             </div>
           )}

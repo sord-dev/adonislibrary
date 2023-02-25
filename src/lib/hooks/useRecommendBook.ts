@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // given a list of objects with the properties { title, author, catagory... } and a focus object from the list
 // return a list of objects that have the same author and catagory
 
-export function useRecommendBook(selectedBook: Book, bookArr: Array<Book>) {
+export function useRecommendBook(selectedBook: Book, bookArr: Array<Book>): Book[] {
   const [recommended, setRecommended] = useState<Book[]>([]);
 
   useEffect(() => {

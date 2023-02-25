@@ -1,0 +1,16 @@
+.carousel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px;
+  overflow-x: scroll;
+  gap: 1em;
+}
+
+.carouselImage {
+  min-width: 130px;
+  height: 180px;
+  position: relative;
+  transform: translateX(0%);
+}

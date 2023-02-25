@@ -1,5 +1,6 @@
+import { ModalContext } from "@/lib/contexts/ModalContext";
 import { SearchBarProps } from "@/types";
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./style.module.css";
 
 export function SearchBar({ query, setQuery, result }: SearchBarProps) {
@@ -31,8 +32,6 @@ function PredictComponent({ result = [] }: any) {
         };
     })
     .filter((title: any) => title);
-
-  console.log(titles);
   return (
     <div className={styles.predict}>
       {titles.map(
